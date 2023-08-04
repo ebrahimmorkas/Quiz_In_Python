@@ -20,13 +20,6 @@ class Questions:
         ]
         }
     ]
-
-    # list = [{
-    #     "Hi": {{"hey": "hello"}}
-    # }]
-    # print(list[0])
-    print(list_of_questions[0])
+    # print(list_of_questions[0])
     # Creating the list that will hold the categories of the quiz that is "Indian History", "Indian Geography  and many more
     list_of_category = ["Indian History", "Indian Geography"]
-
-    # print(list_of_questions)
