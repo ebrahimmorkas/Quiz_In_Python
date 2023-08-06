@@ -6,9 +6,11 @@ class play_game:
     # Creating the object of questions.py class
     ques = q.Questions()
     # Creating the counter that will be useful while iterating the list option_number that is created just below
-    options_counter = 1
+    options_counter = 0
     # Creating the llist that will contain the option numbers
     options_number = ['A', 'B', 'C', 'D']
+    # Variable that will hold the total score scored by the user
+    total_score = 0
     # Function that will print all the categories from the questions.py file
     def print_categories(self):
         # ques = q.Questions()
@@ -40,8 +42,28 @@ class play_game:
                 # print(list_of_options)
                 print(questions_and_options['question'])
                 # Printing the options
+                self.options_counter = 0
                 for options in list_of_options:
                     print(f"{self.options_number[self.options_counter]}. {options}")
+                    self.options_counter += 1
+                #     Accepting the input from the user
+                user_answer = input("Please enter correct option. Enter only A, B, C or D").upper()
+                # Logic for checking whether user has entered the correct answer
+                # Logic:
+                # First we will take the correct ans in the variable 'correct_answer' then we will find the index of the correct answer then we will sore it in variable 'index_of_correct_answer'. User will not enter the correct option instead he will enter the option number that is A B C or D then we will take the index of that option and will store it in variable 'index_of_option' then we will compare this variable with 'index_of_correct_answer' if they match then user has entered the correct option and vice versa
+                correct_answer = questions_and_options['answer']
+                index_of_correct_answer = list_of_options.index(correct_answer)
+
+                if user_answer in self.options_number:
+                    index_of_ABCD = self.options_number.index(user_answer)
+                    if index_of_correct_answer == index_of_ABCD:
+                        print("Option is correct")
+                        self.total_score += 1
+                    else:
+                        print("Option is not correct")
+                        print(f"The correct option is {correct_answer}")
+            # Printing the total score
+            print(f"Your total score is {self.total_score}")
             # print(self.quiz_questions)
         else:
             # print("It is not present")
@@ -52,5 +74,5 @@ game = play_game()
 game.print_categories()
 game.select_category()
 game.select_questions_based_on_category()
-print(game.category)
+# print(game.category)
 
